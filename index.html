@@ -1,9 +1,692 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta property="og:title" content="TEXTure: Text-Guided Texturing of 3D Shapes"/>
+  <meta property="og:url" content="https://texturepaper.github.io/TEXTurePaper/"/>
+  <meta property="og:image" content="static/images/og_tag_header_image.jpg" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <title>TEXTure: Text-Guided Texturing of 3D Shapes</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+  <link rel="icon" href="static/figures/orangutan.png">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
 <body>
 
-<h1>Coming Soon</h1>
+
+<section class="publication-header">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <!-- <div class="columns is-centered"> -->
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">TEXTure: Text-Guided Texturing of 3D Shapes</h1>
+        </div>
+    </div>
+  </div>   
+</section>
+
+<section class="publication-author-block">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+		<div class="is-size-3 publication-authors">
+            <span class="author-block">Anonymous Authors<sup></sup></span>
+          </div>
+          
+          <div class="is-size-3 publication-authors">
+            <!-- span class="author-block"> </span> 
+            <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              
+              <span class="link-block">
+                <a href="static/paper.pdf" target="_blank"
+                  class="external-link button is-normal is-rounded">
+                  <span class="icon">
+                    <i class="fas fa-book-reader"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              
+              <!-- Colab Link. -->
+              <span class="link-block">
+                <a href="https://github.com/TEXTurePaper/TEXTurePaper" target="_blank"
+                class="external-link button is-normal is-rounded">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+              </span>
+             <!--span class="link-block">
+              <a href=""  target="_blank"
+                 class="external-link button is-normal is-rounded">
+                <span class="icon">
+                    <i class="fas fa-infinity"></i>
+                </span>
+                <span>Colab</span>
+              </a>
+             </span -->
+            
+            <!-- <span class="link-block">
+              <a href=""  target="_blank"
+                 class="external-link button is-normal is-rounded">
+                <span class="icon">
+                    <i class="fas fa-laptop"></i>
+                </span>
+                <span>Demo</span>
+              </a>
+             </span> -->
+           
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">TEXTure</span> takes an input mesh and a conditioning text prompt and paints the mesh with high-quality textures, using an iterative diffusion-based process.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero is-small"> -->
+  <!-- <div class="hero-body"> -->
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body"> -->
+      <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+      <!-- <div class="container">
+      <div class="item">
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/teaser.jpg" alt="TEXTure"/>
+      
+      <h2 class="subtitle">
+        TEXTure takes an input mesh and a conditioning text prompt and paints the mesh with high-quality textures, using an iterative diffusion-based process.
+      </h2> -->
+	  <!-- </div> -->
+    <!-- </div> -->
+  <!-- </div> -->
+ <!--  </div> -->
+  <!-- </div> -->
+  <!-- </div> -->
+ <!--  </div> -->
+<!-- </section> -->
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <!-- div class="item">
+          <p style="margin-bottom: 30px">
+        <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <source src="static/figures/video.mp4"
+          type="video/mp4">
+        </video>
+        </p>
+        </div -->
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this paper, we present TEXTure, a novel method for text-guided generation, editing, and transfer of textures for 3D shapes. Leveraging a pretrained depth-to-image diffusion model, TEXTure applies an iterative scheme that paints a 3D model from different viewpoints. Yet, while depth-to-image models can create plausible textures from a single viewpoint, the stochastic nature of the generation process can cause many inconsistencies when texturing an entire 3D object. To tackle these problems, we dynamically define a trimap partitioning of the rendered image into three progression states, and present a novel elaborated diffusion sampling process that uses this trimap representation to generate seamless textures from different views. We then show that one can transfer the generated texture maps to new 3D geometries without requiring explicit surface-to-surface mapping, as well as extract semantic textures from a set of images without requiring any explicit reconstruction. Finally, we show that TEXTure can be used to not only generate new textures but also edit and refine existing textures using either a text prompt or user-provided scribbles. We demonstrate that our TEXTuring method excels at generating, transferring, and editing textures through extensive evaluation, and further close the gap between 2D image generation and 3D texturing.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
 
 
-</body>
-</html>
+
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <h2 class="title is-4">Texturing Results</h2>
+
+    <div class="columns is-centered">
+
+        
+      <div class="column">
+        <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/imac.mp4"
+                    type="video/mp4">
+          </video>
+          <h4 class="subtitle has-text-centered">
+            A desktop Apple iMac
+            </h4>
+        </div>
+      </div>
+
+            <div class="column">
+        <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/napolean.mp4"
+                    type="video/mp4">
+          </video>
+          <h4 class="subtitle has-text-centered">
+            A photo of Napoleon Bonaparte
+            </h4>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/goldfish.mp4"
+                    type="video/mp4">
+          </video>
+          <h4 class="subtitle has-text-centered">
+            A goldfish
+            </h4>
+        </div>
+      </div>
+
+            <div class="column">
+        <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/spotted_fish.mp4"
+                    type="video/mp4">
+          </video>
+          <h4 class="subtitle has-text-centered">
+            A puffer fish
+            </h4>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/pirahana.mp4"
+                    type="video/mp4">
+          </video>
+          <h4 class="subtitle has-text-centered">
+            A piranha fish
+            </h4>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+    </div>
+
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/wood_elephant.mp4"
+                    type="video/mp4">
+          </video>
+          <h4 class="subtitle has-text-centered">
+            A carved wood elephant
+            </h4>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/turtle.mp4"
+                    type="video/mp4">
+          </video>
+          <h4 class="subtitle has-text-centered">
+            A turtle
+            </h4>
+        </div>
+      </div>
+
+
+
+      <div class="column">
+        <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/klein.mp4"
+                    type="video/mp4">
+          </video>
+          <h4 class="subtitle has-text-centered">
+            A wooden klein bottle
+            </h4>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+    </div>
+
+    <div class="columns is-centered">
+
+      <div class="column">
+        <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/radio_100.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/radio_90.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/radio_80.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/radio_70.mp4"
+                    type="video/mp4">
+          </video>
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+    <h4 class="subtitle has-text-centered">
+      A 90s boombox
+    </h4>
+    </div>
+    </div>
+  </div>
+  <h2 class="title is-4">Token-Based Texture Transfer</h2>
+
+
+  <div class="columns is-centered">
+
+
+    <div class="column">
+      <div class="content">
+        <div class="column is-centered has-text-centered">
+          <img src="static/figures/teapot_images.png" alt="Teapot Images" width="800px"/>
+        </div>
+        <h4 class="subtitle has-text-centered">
+         Input Images
+          </h4>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/teapot_turtle.mp4"
+                  type="video/mp4">
+        </video>
+        <!-- <h4 class="subtitle has-text-centered">
+          A turtle
+          </h4> -->
+      </div>
+    </div>
+
+
+
+    <div class="column">
+      <div class="content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/teapot_kelin.mp4"
+                  type="video/mp4">
+        </video>
+        <!-- <h4 class="subtitle has-text-centered">
+          A wooden klein bottle
+          </h4> -->
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="columns is-centered">
+
+
+    <div class="column">
+      <div class="content">
+        <div class="column is-centered has-text-centered">
+          <img src="static/figures/teddy_samples.png" alt="Teapot Images" width="800px"/>
+        </div>
+        <h4 class="subtitle has-text-centered">
+         Input Images
+          </h4>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/teddy_teddy.mp4"
+                  type="video/mp4">
+        </video>
+        <!-- <h4 class="subtitle has-text-centered">
+          A turtle
+          </h4> -->
+      </div>
+    </div>
+
+
+
+    <div class="column">
+      <div class="content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/teddy_armadilo.mp4"
+                  type="video/mp4">
+        </video>
+        <!-- <h4 class="subtitle has-text-centered">
+          A wooden klein bottle
+          </h4> -->
+      </div>
+    </div>
+
+  </div>
+
+  
+  <div class="columns is-centered">
+
+
+    <div class="column">
+      <div class="content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/spot_mesh.mp4"
+                  type="video/mp4">
+        </video>
+        <h4 class="subtitle has-text-centered">
+         Input Mesh
+          </h4>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/spot_koala.mp4"
+                  type="video/mp4">
+        </video>
+        <!-- <h4 class="subtitle has-text-centered">
+          A turtle
+          </h4> -->
+      </div>
+    </div>
+
+
+
+    <div class="column">
+      <div class="content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/spot_pika.mp4"
+                  type="video/mp4">
+        </video>
+        <!-- <h4 class="subtitle has-text-centered">
+          A wooden klein bottle
+          </h4> -->
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="title is-4">Text-Based Refinement</h2>
+
+
+  <div class="columns is-centered">
+
+
+    <div class="column">
+      <div class="content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/orangutan.mp4"
+                  type="video/mp4">
+        </video>
+        <h4 class="subtitle has-text-centered">
+         Input Mesh
+          </h4>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/orangutan_plush.mp4"
+                  type="video/mp4">
+        </video>
+        <h4 class="subtitle has-text-centered">
+          A plush orangutan toy
+          </h4>
+      </div>
+    </div>
+
+
+
+    <div class="column">
+      <div class="content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/orangutan_plastic.mp4"
+                  type="video/mp4">
+        </video>
+        <h4 class="subtitle has-text-centered">
+          A plastic orangutan toy
+          </h4>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- <div class="columns is-centered">
+
+
+    <div class="column">
+      <div class="content">
+        <div class="column is-centered has-text-centered">
+          <img src="static/figures/toy_car_images.png" alt="Teapot Images" width="800px"/>
+        </div>
+        <h4 class="subtitle has-text-centered">
+         Input Images
+          </h4>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/toycar_nascar.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+
+
+    <div class="column">
+      <div class="content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/toycar_toyota.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="columns is-centered">
+
+
+    <div class="column">
+      <div class="content">
+        <div class="column is-centered has-text-centered">
+          <img src="static/figures/flower_elephant_images.png" alt="cars peace" width="800px"/>
+        </div>
+        <h4 class="subtitle has-text-centered">
+         Input Images
+          </h4>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/flower_teddy.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+
+
+    <div class="column">
+      <div class="content">
+        <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/flower_dragon.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+  </div> -->
+
+  </div>
+</section>
+
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title has-text-centered">Results Video</h2>
+      <center>
+        <iframe width="630" height="354" src="https://www.youtube.com/embed/eQMNWbBQTNU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </center>
+    </div>
+  </div>
+</section>
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">How does it work?</h2>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+
+
+      <div class="column">
+        <div class="content">
+          <div class="column is-centered has-text-centered">
+            <img src="static/figures/texturing_figure.png" alt="cars peace" width="800px"/>
+          </div>
+        </div>
+      </div>
+
+  
+  
+      <div class="column">
+          <h4 class="subtitle has-text-justified">
+            A mesh is iteratively painted from different viewpoints. In each painting iteration, we render the mesh alongside its depth and normal maps. We then calculate a trimap partitioning of the image to three distinct areas based on the camera normals and a viewpoint cache representing previously viewed angles. These inputs are then fed into a modified diffusion process alongside a given text prompt which generates an updated image. This image is then projected back to the texture map for the next iteration.
+            </h4>
+            <h4 class="subtitle has-text-justified">
+              Check out the paper to learn more 🤓
+              </h4>
+      </div>
+  
+    </div>
+  
+  </div>
+</section> 
+
+
+<footer class="footer">
+  <div class="columns is-centered">
+    <div class="column is-8">
+      <div class="content">
+        <p>
+          This website is licensed under a <a rel="license"
+          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+        Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+      <p>
+        Credits for shapes are given in the paper. Please follow their respective licenses upon reuse.
+    </p>
+      <p>
+        Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If you want to reuse their <a
+        href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+</footer>
+
+
+<!-- Default Statcounter code for TEXTure
+https://texturepaper.github.io/TEXTurePaper/ -->
+<script type="text/javascript">
+  var sc_project=12845175; 
+  var sc_invisible=1; 
+  var sc_security="c50db5bf"; 
+  </script>
+  <script type="text/javascript"
+  src="https://www.statcounter.com/counter/counter.js" async></script>
+  <noscript><div class="statcounter"><a title="Web Analytics"
+  href="https://statcounter.com/" target="_blank"><img class="statcounter"
+  src="https://c.statcounter.com/12845175/0/c50db5bf/1/" alt="Web Analytics"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+  <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
