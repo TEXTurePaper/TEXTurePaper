@@ -1,0 +1,16 @@
+log:
+  exp_name: nascar
+  save_interval: 18
+guide:
+  text: "A next gen nascar, {} view"
+  diffusion_name: stabilityai/stable-diffusion-2-depth
+  shape_scale: 0.6
+  append_direction: True
+  shape_path: shapes/nascar.obj
+  texture_resolution: 1024
+  guidance_scale: 10
+  texture_interpolation_mode: 'bilinear'
+optim:
+  seed: 2
+render:
+  front_offset: 0

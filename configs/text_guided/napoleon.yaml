@@ -1,0 +1,8 @@
+log:
+  exp_name: napoleon
+guide:
+  text: "A photo of Napoleon Bonaparte, {} view"
+  append_direction: True
+  shape_path: shapes/napoleon.obj
+optim:
+  seed: 3
