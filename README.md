@@ -1,4 +1,4 @@
-# TEXTure: Semantic Texture Transfer using Text Tokens
+# TEXTure: Text-Guided Texturing of 3D Shapes
 
 
 
