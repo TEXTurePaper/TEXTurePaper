@@ -7,6 +7,7 @@ https://user-images.githubusercontent.com/14039317/216840512-e83f71cf-beb0-4450-
 
 ## [[Project Page]](https://texturepaper.github.io/TEXTurePaper/)
 
+<a href="https://arxiv.org/abs/2302.01721"><img src="https://img.shields.io/badge/arXiv-2302.01721-b31b1b.svg" height=22.5></a>
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" height=22.5></a>  [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/TEXTurePaper/TEXTure)
 
 > Abstract
