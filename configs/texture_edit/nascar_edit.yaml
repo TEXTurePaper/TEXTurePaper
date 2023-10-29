@@ -1,0 +1,9 @@
+log:
+  exp_name: 2023_10_29_lego_car
+guide:
+  text: "A lego next gen nascar, {} view"
+  diffusion_name: stabilityai/stable-diffusion-2-depth
+  shape_scale: 0.6
+  append_direction: True
+  shape_path: shapes/nascar.obj
+  initial_texture: textures/nascar_texture.png

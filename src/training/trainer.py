@@ -261,7 +261,7 @@ class TEXTure:
         self.log_train_image(cropped_rgb_render, name='cropped_input')
 
         checker_mask = None
-        if self.paint_step > 1:
+        if self.paint_step > 1 or self.cfg.guide.initial_texture is not None:
             checker_mask = self.generate_checkerboard(crop(update_mask), crop(refine_mask),
                                                       crop(generate_mask))
             self.log_train_image(F.interpolate(cropped_rgb_render, (512, 512)) * (1 - checker_mask),
@@ -456,8 +456,7 @@ class TEXTure:
             masked_pred = rgb_render.reshape(1, rgb_render.shape[1], -1)[:, :, mask > 0]
             masked_target = rgb_output.reshape(1, rgb_output.shape[1], -1)[:, :, mask > 0]
             masked_mask = mask[mask > 0]
-            loss = ((masked_pred - masked_target.detach()).pow(2) * masked_mask).mean() + (
-                    (masked_pred - masked_pred.detach()).pow(2) * (1 - masked_mask)).mean()
+            loss = ((masked_pred - masked_target.detach()).pow(2) * masked_mask).mean()
 
             meta_outputs = self.mesh_model.render(background=torch.Tensor([0, 0, 0]).to(self.device),
                                                   use_meta_texture=True, render_cache=render_cache)

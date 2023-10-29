@@ -9,7 +9,7 @@ from src.utils import get_view_direction
 from loguru import logger
 
 
-def rand_poses(size, device, radius_range=(1.0, 1.5), theta_range=(0.0, 150.0), phi_range=(0.0, 360.0),
+def rand_poses(size, device, radius_range=(1.0, 1.5), theta_range=(0.0, 180.0), phi_range=(0.0, 360.0),
                angle_overhead=30.0, angle_front=60.0, biased_angles=True):
     if theta_range != (0.0, 180.0):
         warnings.warn("theta_range is not (0.0, 180.0) in rand_poses\n Will use (0.0, 180.0) instead")
@@ -152,21 +152,27 @@ class MultiviewDataset:
 
 
 class ViewsDataset:
-    def __init__(self, cfg: RenderConfig, device, size=100):
+    def __init__(self, cfg: RenderConfig, device, size=100, random_views=False):
         super().__init__()
 
         self.cfg = cfg
         self.device = device
-        self.type = type  # train, val, test
+        self.random_views = random_views
         self.size = size
 
     def collate(self, index):
         # circle pose
-        phi = (index[0] / self.size) * 360
-        dirs, thetas, phis, radius = circle_poses(self.device, radius=self.cfg.radius * 1.2, theta=self.cfg.base_theta,
-                                                  phi=phi,
-                                                  angle_overhead=self.cfg.overhead_range,
-                                                  angle_front=self.cfg.front_range)
+
+        if self.random_views:
+            dirs, thetas, phis, radius = rand_poses(len(index), self.device)
+        else:
+
+            phi = (index[0] / self.size) * 360
+            dirs, thetas, phis, radius = circle_poses(self.device, radius=self.cfg.radius * 1.2,
+                                                      theta=self.cfg.base_theta,
+                                                      phi=phi,
+                                                      angle_overhead=self.cfg.overhead_range,
+                                                      angle_front=self.cfg.front_range)
 
         data = {
             'dir': dirs,

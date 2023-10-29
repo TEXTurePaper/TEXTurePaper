@@ -260,18 +260,15 @@ class TexturedMeshModel(nn.Module):
 
         if self.mesh.vt is not None and self.mesh.ft is not None \
                 and self.mesh.vt.shape[0] > 0 and self.mesh.ft.min() > -1:
+            logger.info('Mesh includes UV map')
             vt = self.mesh.vt.cuda()
             ft = self.mesh.ft.cuda()
-            run_xatlas = not (vt.shape[0] == self.mesh.vertices.shape[0] and ft.shape[0] == self.mesh.faces.shape[0])
         elif cache_exists_flag:
+            logger.info(f'running cached UV maps from {vt_cache}')
             vt = torch.load(vt_cache).cuda()
             ft = torch.load(ft_cache).cuda()
-            run_xatlas = not (vt.shape[0] == self.mesh.vertices.shape[0] and ft.shape[0] == self.mesh.faces.shape[0])
         else:
-            run_xatlas = True
-
-        if run_xatlas:
-            logger.info('running xatlas to unwrap UVs for mesh: v={v_np.shape} f={f_np.shape}')
+            logger.info(f'running xatlas to unwrap UVs for mesh: v={v_np.shape} f={f_np.shape}')
             # unwrap uvs
             import xatlas
             v_np = self.mesh.vertices.cpu().numpy()

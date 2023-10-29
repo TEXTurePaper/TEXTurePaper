@@ -1,0 +1,4 @@
+render_name: spot_train_images
+shape_path: shapes/spot_triangulated.obj
+initial_texture_path: shapes/spot_texture.png
+front_offset: 180
