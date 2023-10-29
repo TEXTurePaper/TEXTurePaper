@@ -1,0 +1,9 @@
+log:
+  exp_name: spot_as_blub
+guide:
+  diffusion_name: PATH_TO_YOUR_TUNED_MODEL
+  text: "a <{}> photo of a <object>" # If fnietuned without direction, remove <{}> and set append_direction to False
+  append_direction: True
+  shape_scale: 0.6
+  shape_path: shapes/blub_no_texture.obj
+  use_background_color: True # To match how we trained the finetuned model

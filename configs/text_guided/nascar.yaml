@@ -1,6 +1,5 @@
 log:
   exp_name: nascar
-  save_interval: 18
 guide:
   text: "A next gen nascar, {} view"
   diffusion_name: stabilityai/stable-diffusion-2-depth

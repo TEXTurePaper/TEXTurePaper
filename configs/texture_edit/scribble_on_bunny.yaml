@@ -1,0 +1,12 @@
+log:
+  exp_name: 2023_10_29_scribble_on_bunny_v3_seed_2
+guide:
+  text: "a photo of a rabbit, {} view"
+  diffusion_name: stabilityai/stable-diffusion-2-depth
+  shape_scale: 0.6
+  append_direction: True
+  shape_path: shapes/bunny.obj
+  reference_texture: textures/eastern_bunny_result.jpg
+  initial_texture: textures/eastern_bunny_result_with_scribble.jpg
+optim:
+  seed: 2
