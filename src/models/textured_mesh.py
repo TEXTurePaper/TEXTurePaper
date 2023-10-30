@@ -268,7 +268,7 @@ class TexturedMeshModel(nn.Module):
             vt = torch.load(vt_cache).cuda()
             ft = torch.load(ft_cache).cuda()
         else:
-            logger.info(f'running xatlas to unwrap UVs for mesh: v={v_np.shape} f={f_np.shape}')
+            logger.info(f'running xatlas to unwrap UVs for mesh')
             # unwrap uvs
             import xatlas
             v_np = self.mesh.vertices.cpu().numpy()
