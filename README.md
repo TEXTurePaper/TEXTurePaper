@@ -144,6 +144,8 @@ We can now use our personalized model with our standard texturing code, just set
 python -m scripts.run_texture --config_path=configs/texture_transfer/transfer_to_blub.yaml
 ```
 
+> Note: If you trained on a set of images with their original backgrounds you should set `guide.use_background_color` to False
+
 ### Texture Editing ✂️
 
 In TEXTure we showcase two potential ways to modify a generated/given texture.
